@@ -1,0 +1,19 @@
+.footer {
+  background-color: #0a1628;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 -8px 28px rgba(0,0,0,0.24);
+  border-top: 1px solid rgba(201, 162, 39, .5);
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer span { color: #c9a227; margin-left: 6px; }
+
+:global(.dark) .footer {
+  background-color: #0a1628;
+  color: #e2e8f0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
+}

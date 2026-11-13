@@ -1,0 +1,21 @@
+fastapi
+uvicorn
+transformers
+torch
+sqlalchemy
+pydantic
+sentence-transformers
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+requests
+yfinance
+beautifulsoup4
+python-dotenv
+nltk
+reportlab
+
+# For fake news dataset loading and training
+scikit-learn
+pandas
+datasets

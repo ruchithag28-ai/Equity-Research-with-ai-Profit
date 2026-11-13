@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utility classes */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus ring utility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Dark mode base */
+:root {
+}
+
+html.dark body,
+.dark body {
+  background-color: #0b1220;
+  color: #e5e7eb;
+}
+
+html.dark a,
+.dark a {
+  color: inherit;
+}
+
+/* Dark scrollbars */
+html.dark ::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+html.dark ::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Premium finance theme shared by every route. */
+:root {
+  color-scheme: dark;
+  --finance-navy: #0a1628;
+  --finance-navy-light: #0f2340;
+  --finance-gold: #c9a227;
+  --finance-muted: #94a3b8;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: #0a1628 !important;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, #0a1628 0%, #0b1b32 52%, #0f2340 100%) fixed !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  opacity: .34;
+  background-image: radial-gradient(rgba(201, 162, 39, .34) .8px, transparent .8px);
+  background-size: 27px 27px;
+  mask-image: linear-gradient(115deg, #000 0%, transparent 78%);
+}
+
+body::after {
+  inset: auto 0 0 auto;
+  width: min(900px, 90vw);
+  height: 330px;
+  opacity: .18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 330'%3E%3Cpath d='M0 270 L95 224 L155 246 L230 155 L302 182 L382 116 L455 149 L522 72 L605 111 L674 42 L747 88 L824 24 L900 53' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Cpath d='M0 285H900M0 220H900M0 155H900M0 90H900M0 25H900' stroke='%2394A3B8' stroke-opacity='.2' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+body > div {
+  position: relative;
+  z-index: 1;
+}
+
+.min-h-screen {
+  color: #fff !important;
+  background: transparent !important;
+}
+
+.min-h-screen :is(h1, h2, h3, h4, h5) {
+  color: #fff;
+}
+
+.min-h-screen :is(.text-slate-900, .text-gray-900, .text-black) {
+  color: #fff !important;
+}
+
+/* White glass panels with the requested fine gold edge. */
+.min-h-screen :is([class~="bg-white"], [class~="dark:bg-gray-900"], [class~="bg-gray-900"], [class~="bg-slate-900"]) {
+  color: #111827 !important;
+  background: rgba(255, 255, 255, .96) !important;
+  border-color: rgba(203, 213, 225, .9);
+  border-top: 1px solid #c9a227 !important;
+  border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(12px);
+}
+
+.min-h-screen :is([class~="bg-white"], [class~="dark:bg-gray-900"], [class~="bg-gray-900"], [class~="bg-slate-900"]) :is(h1, h2, h3, h4, h5, .text-slate-900, .text-gray-900, .text-black) {
+  color: #111827 !important;
+}
+
+.min-h-screen :is([class~="bg-slate-50"], [class~="bg-gray-50"], [class~="bg-gray-100"], [class~="bg-black"], [class~="dark:bg-black"], [class~="dark:bg-gray-950"]) {
+  background-color: transparent !important;
+}
+
+.min-h-screen :is(.text-slate-600, .text-slate-500, .text-gray-600, .text-gray-500, .text-gray-400) {
+  color: #94a3b8;
+}
+
+.min-h-screen .finance-chart-panel {
+  color: #111827 !important;
+  background: rgba(255, 255, 255, .96) !important;
+  border: 1px solid rgba(203, 213, 225, .9) !important;
+  border-top: 1px solid #c9a227 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .2) !important;
+}
+
+.min-h-screen .finance-chart-panel * {
+  color: #111827 !important;
+}
+
+.min-h-screen .finance-chart-panel button {
+  color: #111827 !important;
+  background: #c9a227 !important;
+  border-color: #c9a227 !important;
+}
+
+.min-h-screen .finance-chart-panel :is(input, select) {
+  color: #111827 !important;
+  background: #fff !important;
+}
+
+.min-h-screen main button,
+.min-h-screen a[class*="bg-blue-"],
+.min-h-screen a[class*="bg-red-"],
+.min-h-screen a[class*="bg-cyan-"] {
+  color: #111827 !important;
+  background: #c9a227 !important;
+  border-color: #c9a227 !important;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.min-h-screen main button:hover,
+.min-h-screen a[class*="bg-blue-"]:hover,
+.min-h-screen a[class*="bg-red-"]:hover,
+.min-h-screen a[class*="bg-cyan-"]:hover {
+  background: #d8b33b !important;
+}
+
+.finance-chart-panel .chart-control {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 5px 10px !important;
+  background: #f8fafc !important;
+  color: #334155 !important;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.finance-chart-panel .chart-control:hover,
+.finance-chart-panel .chart-control-active {
+  border-color: #c9a227 !important;
+  background: #c9a227 !important;
+  color: #111827 !important;
+}
+
+.min-h-screen table tbody tr {
+  transition: background-color .16s ease, transform .16s ease;
+}
+
+.min-h-screen table tbody tr:nth-child(even) {
+  background: rgba(148, 163, 184, .08);
+}
+
+.min-h-screen table tbody tr:hover {
+  background: rgba(201, 162, 39, .14) !important;
+}
+
+.profit-comparison-table tbody td:nth-child(2) {
+  color: #111827;
+  background: rgba(201, 162, 39, .2);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.min-h-screen table[class~="min-w-[850px]"] tbody td:nth-child(2) {
+  color: #111827 !important;
+  background: rgba(201, 162, 39, .2);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+nav:not(.navbar) {
+  color: #fff;
+  background-color: #0a1628 !important;
+  border-bottom: 1px solid rgba(201, 162, 39, .45);
+}
+
+nav:not(.navbar) a { color: #f8fafc !important; }
+nav:not(.navbar) a[class*="bg-red-"] { color: #111827 !important; background: #c9a227 !important; }
+nav:not(.navbar) a[href="/login"], nav:not(.navbar) a[href="/signup"] { color: #111827 !important; background: #c9a227 !important; }
+nav:not(.navbar) button { color: #111827 !important; background: #c9a227 !important; border-radius: 10px; }
+
+.min-h-screen #features,
+.min-h-screen #about,
+.min-h-screen #faq {
+  color: #f8fafc !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+footer {
+  color: #e2e8f0 !important;
+  background: #0a1628 !important;
+  border-top: 1px solid rgba(201, 162, 39, .45);
+}
+
+::-webkit-scrollbar-track { background: #0f2340; }
+::-webkit-scrollbar-thumb { background: #475569; }
+::-webkit-scrollbar-thumb:hover { background: #c9a227; }
